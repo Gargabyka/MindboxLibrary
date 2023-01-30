@@ -23,7 +23,7 @@ INSERT INTO Category VALUES('Компьютерная переферия'), ('Э
 INSERT INTO Products_Category VALUES(1, 1), (1, 2), (2, 3), (3,4);
 ```
 
-#№№ Запрос
+### Запрос
 ```
 SELECT 
 	p.name AS "Наименование продукта",
