@@ -30,6 +30,6 @@ SELECT
 	c.name AS "Наименование категории"
 FROM Products p
 LEFT JOIN Products_Category pc 	ON  pc.Product_id = p.Id
-LEFT JOIN Category 			c 	ON c.Id = pc.Category_id
+LEFT JOIN Category 	    c 	ON c.Id = pc.Category_id
 ORDER BY p.name
 ```
