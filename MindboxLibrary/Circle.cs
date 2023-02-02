@@ -1,43 +1,41 @@
-﻿namespace MindboxLibrary
+﻿using MindboxLibrary.Extension;
+
+namespace MindboxLibrary
 {
     /// <summary>
     /// Фигура: круг
     /// </summary>
-    public class Circle : IFigure
+    public sealed class Circle : BaseFigure, IFigure
     {
-        private readonly double _radius;
+        private readonly decimal _radius;
 
-        public Circle(double radius)
+        public Circle(decimal radius)
         {
-            if (radius <= 0)
-                throw new ArgumentException("Радиус меньше нуля");
-            if (!double.IsNormal(radius))
-                throw new ArgumentException("Указан неверный радиус");
-
-            _radius = radius;
+            if(IsCheckValue(new decimal[] {radius}))
+            {
+                _radius = radius;
+            }
         }
 
-        public Circle(double[] inputValue)
+        public Circle(decimal[] inputValue)
         {
             var radius = inputValue[0];
 
-            if (radius <= 0)
-                throw new ArgumentException("Радиус меньше нуля");
-            if (!double.IsNormal(radius))
-                throw new ArgumentException("Указан неверный радиус");
-
-            _radius = radius;
+            if(IsCheckValue(inputValue))
+            {
+                _radius = radius;
+            }
         }
 
 
-        public double Square
+        public decimal Square
         {
             get
             {
-                double square;
+                decimal square;
                 try
                 {
-                    square = Math.PI * Math.Pow(_radius, 2);
+                    square = MathDecimal.PI * _radius * _radius;
                     return square;
                 }
                 catch (ArgumentOutOfRangeException)
@@ -50,7 +48,5 @@
                 }
             }
         }
-
-        public bool? IsRightTriangle { get; } = null;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MindboxLibrary;
+using MindboxLibrary.Extension;
 
 namespace MindboxLibraryTest
 {
@@ -12,7 +13,7 @@ namespace MindboxLibraryTest
         {
             //arrange
             var circle = new Circle(5);
-            var checkValue = Math.PI * Math.Pow(5, 2);
+            var checkValue = MathDecimal.PI * MathDecimal.Pow(5, 2);
 
             //act
             var result = circle.Square;

@@ -10,11 +10,6 @@
         /// <summary>
         /// Площадь
         /// </summary>
-        public double Square { get; }
-
-        /// <summary>
-        /// Признак прямоугольного треугольника
-        /// </summary>
-        public bool? IsRightTriangle { get; }
+        public decimal Square { get; }
     }
 }

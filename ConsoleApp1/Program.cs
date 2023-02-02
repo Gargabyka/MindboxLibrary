@@ -8,26 +8,29 @@ namespace TestApp
         {
             var figureCreator = new FigureCreator();
 
-            var doubleList = new List<double[]>
+            var decimalsList = new List<decimal[]>
             {
-                new double[] { 5 },
-                new double[] { 6, 7, 8 },
-                new double[] { 3, 4, 5 },
-                new double[] { 4, 5 },
-                new double[] { 7 },
-                new double[] { 8, 9, 10 }
+                new decimal[] { 5 },
+                new decimal[] { 6, 7, 8 },
+                new decimal[] { 3, 4, 5 },
+                new decimal[] { 4, 5 },
+                new decimal[] { 7 },
+                new decimal[] { 8, 9, 10 }
             };
 
-            foreach (var value in doubleList)
+            foreach (var value in decimalsList)
             {
                 var figure = figureCreator.CreateFigure(value);
 
-                var isRightTriangle = figure.IsRightTriangle.HasValue
-                    ? $"Равносторонний треугольник: {figure.IsRightTriangle}"
-                    : string.Empty;
 
-                Console.WriteLine($"Тип фигуры: {figure.TypeFigure}. Площадь: {figure.Square}. {isRightTriangle}");
+                Console.WriteLine($"Тип фигуры: {figure.TypeFigure}. Площадь: {figure.Square}");
             }
+
+            var circle = new Circle(5);
+            Console.WriteLine($"{circle.Square}");
+
+            var triangle = new Triangle(3, 4, 5);
+            Console.WriteLine($"{triangle.Square}");
 
             Console.ReadKey();
         }

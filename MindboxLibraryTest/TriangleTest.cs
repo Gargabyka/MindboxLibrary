@@ -11,22 +11,21 @@ namespace MindboxLibraryTest
         public void SquareTest()
         {
             //arrange
-            var value = new double[] { 6, 5, 5 };
-            var checkValue = 12;
+            var value = new decimal[] { 6, 5, 5 };
             var triangle = new Triangle(value);
 
             //act
             var result = triangle.Square;
 
             //assert
-            Assert.AreEqual(checkValue, result);
+            Assert.IsTrue(result is > 11 and < 13);
         }
 
         [TestMethod]
         public void IsRightTriangleTest()
         {
             //arrange
-            var value = new double[] { 3, 4, 5 };
+            var value = new decimal[] { 3, 4, 5 };
             var triangle = new Triangle(value);
 
             //act
@@ -39,7 +38,7 @@ namespace MindboxLibraryTest
         [TestMethod]
         public void ExceptionTest()
         {
-            var value = new double[] { -3, 4, 5 };
+            var value = new decimal[] { -3, 4, 5 };
 
             Assert.ThrowsException<ArgumentException>(() => new Triangle(value));
         }

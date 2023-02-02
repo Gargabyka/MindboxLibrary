@@ -5,7 +5,7 @@
     /// </summary>
     public class FigureCreator
     {
-        public IFigure CreateFigure(double[] inputValue)
+        public IFigure CreateFigure(decimal[] inputValue)
         {
             switch (inputValue.Length)
             {

@@ -1,19 +1,21 @@
-﻿namespace MindboxLibrary
+﻿using MindboxLibrary.Extension;
+
+namespace MindboxLibrary
 {
     /// <summary>
     /// Фигура: треугольник
     /// </summary>
-    public class Triangle: IFigure
+    public class Triangle: BaseFigure, IFigure
     {
-        private readonly double _firstSide;
-        private readonly double _secondSide;
-        private readonly double _thirdSide;
+        private readonly decimal _firstSide;
+        private readonly decimal _secondSide;
+        private readonly decimal _thirdSide;
 
-        public Triangle(double firstSide, double secondSide, double thirdSide)
+        public Triangle(decimal firstSide, decimal secondSide, decimal thirdSide)
         {
-            var inputValue = new double[] { firstSide, secondSide, thirdSide };
+            var inputValue = new[] { firstSide, secondSide, thirdSide };
 
-            if (IsCheckValue(inputValue))
+            if (base.IsCheckValue(inputValue))
             {
                 _firstSide = inputValue[0];
                 _secondSide = inputValue[1];
@@ -21,10 +23,10 @@
             }
         }
 
-        public Triangle(double[] inputValue)
+        public Triangle(decimal[] inputValue)
         {
 
-            if (IsCheckValue(inputValue))
+            if (base.IsCheckValue(inputValue))
             {
                 _firstSide = inputValue[0];
                 _secondSide = inputValue[1];
@@ -33,15 +35,15 @@
 
         }
 
-        public double Square
+        public decimal Square
         {
             get
             {
-                double square;
+                decimal square;
                 try
                 {
                     var perimeter = (_firstSide + _secondSide + _thirdSide) / 2;
-                    square = Math.Sqrt(perimeter * (perimeter - _firstSide) * (perimeter - _secondSide) *
+                    square = MathDecimal.Sqrt(perimeter * (perimeter - _firstSide) * (perimeter - _secondSide) *
                                            (perimeter - _thirdSide));
 
                     return square;
@@ -64,24 +66,10 @@
         {
             get
             {
-                return Math.Pow(_firstSide, 2) == Math.Pow(_secondSide, 2) + Math.Pow(_thirdSide, 2) ||
-                            Math.Pow(_secondSide, 2) == Math.Pow(_firstSide, 2) + Math.Pow(_thirdSide, 2) ||
-                            Math.Pow(_thirdSide, 2) == Math.Pow(_firstSide, 2) + Math.Pow(_secondSide, 2);
+                return MathDecimal.Pow(_firstSide, 2) == MathDecimal.Pow(_secondSide, 2) + MathDecimal.Pow(_thirdSide, 2) ||
+                       MathDecimal.Pow(_secondSide, 2) == MathDecimal.Pow(_firstSide, 2) + MathDecimal.Pow(_thirdSide, 2) ||
+                            MathDecimal.Pow(_thirdSide, 2) == MathDecimal.Pow(_firstSide, 2) + MathDecimal.Pow(_secondSide, 2);
             }
         }
-
-        /// <summary>
-        /// Проверка входных параметров
-        /// </summary>
-        private bool IsCheckValue(double[] valueDoubleList)
-        {
-            foreach (var valueList in valueDoubleList)
-            {
-                if (valueList <= 0 || !double.IsNormal(valueList))
-                    throw new ArgumentException("Введено некорректное значение или сторона меньше, либо равна нулю");
-            }
-
-            return true;
-        } 
     }
 }

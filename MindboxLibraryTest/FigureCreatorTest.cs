@@ -12,7 +12,7 @@ namespace MindboxLibraryTest
         {
             //arrange
             var figureCreator = new FigureCreator();
-            var value = new double[] { 5 };
+            var value = new decimal[] { 5 };
             var figure = figureCreator.CreateFigure(value);
 
             //act
@@ -27,7 +27,7 @@ namespace MindboxLibraryTest
         {
             //arrange
             var figureCreator = new FigureCreator();
-            var value = new double[] { 5, 6, 7 };
+            var value = new decimal[] { 5, 6, 7 };
             var figure = figureCreator.CreateFigure(value);
 
             //act
@@ -42,7 +42,7 @@ namespace MindboxLibraryTest
         {
             //arrange
             var figureCreator = new FigureCreator();
-            var value = new double[] { 5, 6, 7, 8 };
+            var value = new decimal[] { 5, 6, 7, 8 };
             var figure = figureCreator.CreateFigure(value);
 
             //act
