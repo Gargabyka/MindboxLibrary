@@ -26,12 +26,6 @@ namespace TestApp
                 Console.WriteLine($"Тип фигуры: {figure.TypeFigure}. Площадь: {figure.Square}");
             }
 
-            var circle = new Circle(5);
-            Console.WriteLine($"{circle.Square}");
-
-            var triangle = new Triangle(3, 4, 5);
-            Console.WriteLine($"{triangle.Square}");
-
             Console.ReadKey();
         }
     }
